@@ -16,5 +16,21 @@ namespace TechWebsite.Areas.Admin.Controllers
         {
             return View();
         }
+
+
+        [Route("")]
+        [Route("signout")]
+        public IActionResult SignOut()
+        {
+            return View();
+        }
+
+
+        [Route("")]
+        [Route("accessdenied")]
+        public IActionResult Accessdenied()
+        {
+            return View();
+        }
     }
 }
