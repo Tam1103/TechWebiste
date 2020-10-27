@@ -17,6 +17,6 @@ namespace TechWebsite.Models
 
         public bool Status { get; set; }
 
-        public virtual ICollection<Role> Roles { get; set; }
+        public virtual ICollection<RoleAccount> RoleAccounts { get; set; }
     }
 }

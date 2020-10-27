@@ -36,9 +36,10 @@ namespace TechWebsite
 
             services.AddSession();
             services.AddMvc();
+            
 
             services.AddDbContext<DatabaseContext>(options =>
-      options.UseSqlServer(Configuration.GetConnectionString("TechDatabase")));
+      options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("TechDatabase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +53,8 @@ namespace TechWebsite
             app.UseSession();
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

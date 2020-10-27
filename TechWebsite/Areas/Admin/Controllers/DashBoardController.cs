@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TechWebsite.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "")]
+    [Authorize(Roles = "Admin")]
     [Area("admin")]
     [Route("admin/dashboard")]
 
