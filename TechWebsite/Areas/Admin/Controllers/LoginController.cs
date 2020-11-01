@@ -16,7 +16,7 @@ namespace TechWebsite.Areas.Admin.Controllers
         {
             db = _db;
         }
-
+        [Route("")]
         [Route("index")]
         public IActionResult Index()
         {

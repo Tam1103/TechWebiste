@@ -10,6 +10,7 @@ namespace TechWebsite.Areas.Admin.Controllers
     public class DashBoardController : Controller
     {
 
+        [Route("")]
         [Route("index")]
         public IActionResult Index()
         {
