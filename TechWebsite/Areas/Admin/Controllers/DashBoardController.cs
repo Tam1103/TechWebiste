@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TechWebsite.Areas.Admin.Controllers
@@ -14,7 +10,6 @@ namespace TechWebsite.Areas.Admin.Controllers
     public class DashBoardController : Controller
     {
 
-        [Route("")]
         [Route("index")]
         public IActionResult Index()
         {

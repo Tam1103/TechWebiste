@@ -17,7 +17,6 @@ namespace TechWebsite.Areas.Admin.Controllers
             db = _db;
         }
 
-        [Route("")]
         [Route("index")]
         public IActionResult Index()
         {
@@ -33,7 +32,7 @@ namespace TechWebsite.Areas.Admin.Controllers
             if(account != null)
             {
                 securityManager.SignIn(this.HttpContext, account);
-                return RedirectToAction("","dashboard", "admin");
+                return RedirectToAction("index", "dashboard", new { area = "admin" });
             }
             else
             {
