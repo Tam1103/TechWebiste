@@ -16,5 +16,11 @@ namespace TechWebsite.Areas.Admin.Controllers
         {
             return View();
         }
+        
+        //[Route("calendar")]
+        //public IActionResult Calendar()
+        //{
+        //    return View();
+        //}
     }
 }
