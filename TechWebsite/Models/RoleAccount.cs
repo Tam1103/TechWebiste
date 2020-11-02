@@ -10,8 +10,10 @@ namespace TechWebsite.Models
     [Table("RoleAccount")]
     public class RoleAccount
     {
+        [Key]
         public int RoleId { get; set; }
 
+        [Key]
         public int AccountId { get; set; }
 
         public bool Status { get; set; }
