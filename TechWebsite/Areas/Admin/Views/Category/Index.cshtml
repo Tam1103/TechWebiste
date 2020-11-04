@@ -61,7 +61,7 @@
                                         <tr>
                                             <td>@category.Id</td>
                                             <td style="font-weight:bold;">@category.Name</td>
-                                            <td>@(category.Status ? "Show" : "H i d e") </td>
+                                            <td>@(category.Status ? "show" : "hide") </td>
                                             <td>@(category.Parent == null ? "" : category.Parent.Name) </td>
                                             <td>
                                                 <a asp-area="admin" asp-controller="category" asp-action="edit" asp-route-id="@category.Id">
@@ -84,7 +84,7 @@
                                                 <tr>
                                                     <td>@subCategory.Id</td>
                                                     <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @subCategory.Name</td>
-                                                    <td>@(subCategory.Status ? "Show" : "H i d e") </td>
+                                                    <td>@(subCategory.Status ? "show" : "hide") </td>
                                                     <td>@subCategory.Parent.Name</td>
                                                     <td>
                                                         <a asp-area="admin" asp-controller="category" asp-action="edit" asp-route-id="@subCategory.Id">
