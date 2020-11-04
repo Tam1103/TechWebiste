@@ -59,6 +59,10 @@ namespace TechWebsite
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                   name: "MyArea",
+                   template: "{area:exists}/{controller=DashBoard}/{action=Index}/{id?}");
+
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });

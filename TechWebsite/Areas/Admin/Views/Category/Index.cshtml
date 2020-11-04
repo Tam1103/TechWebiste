@@ -3,7 +3,19 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-
+<style>
+    a:hover {
+        color: #ff0000;
+    }
+    a.add {
+        color: #ffffff;
+        padding: 10px;
+        background: #0094ff;
+    }
+    a.add:hover{
+        opacity:0.7;
+    }
+</style>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -28,7 +40,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">List Manager</h3>
+                         <a class="add" asp-area="admin" asp-controller="category" asp-action="add">Add New Category</a>
+                         <span> <a class="add" asp-area="admin" asp-controller="category" asp-action="addnewsubcategory">Add New Sub Category</a></span>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -52,14 +65,16 @@
                                             <td>@(category.Parent == null ? "" : category.Parent.Name) </td>
                                             <td>
                                                 <a asp-area="admin" asp-controller="category" asp-action="edit" asp-route-id="@category.Id">
-                                                Edit</a><span> | </span> |
+                                                    Edit
+                                                </a><span> | </span>
                                                 @if (category.InverseParents != null && category.InverseParents.Count == 0)
                                                 {
                                                     <a asp-area="admin" asp-controller="category" asp-action="delete" asp-route-id="@category.Id"
                                                        onclick="return confirm('Are you sure?')">Delete</a><span> | </span>
                                                 }
-
-                                                Add Sub Category
+                                                <a asp-area="admin" asp-controller="category" asp-action="addsubcategory" asp-route-id="@category.Id">
+                                                    Add Sub Category
+                                                </a>
                                             </td>
                                         </tr>
                                         if (category.InverseParents != null && category.InverseParents.Count != 0)
@@ -71,7 +86,13 @@
                                                     <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @subCategory.Name</td>
                                                     <td>@(subCategory.Status ? "Show" : "H i d e") </td>
                                                     <td>@subCategory.Parent.Name</td>
-                                                    <td>Edit | Delete</td>
+                                                    <td>
+                                                        <a asp-area="admin" asp-controller="category" asp-action="edit" asp-route-id="@subCategory.Id">
+                                                            Edit
+                                                        </a> |
+                                                        <a asp-area="admin" asp-controller="category" asp-action="delete" asp-route-id="@subCategory.Id"
+                                                           onclick="return confirm('Are you sure?')">Delete</a>
+                                                    </td>
                                                 </tr>
                                             }
                                         }
