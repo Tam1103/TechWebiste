@@ -25,10 +25,13 @@ namespace TechWebsite.Models
 
         public virtual DbSet<Category> Categories { get; set; }
 
+        public virtual DbSet<SlideShow> SlideShows { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
+            //account
             modelBuilder.Entity<Account>(entity =>
             {
                 entity.Property(e => e.Email)
@@ -48,7 +51,7 @@ namespace TechWebsite.Models
                   .IsUnicode(false);
             });
 
-
+            //role
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.Property(e => e.Name)
@@ -57,6 +60,7 @@ namespace TechWebsite.Models
 
             });
 
+            //roleAccount
             modelBuilder.Entity<RoleAccount>(entity =>
             {
                 entity.HasKey(e => new { e.RoleId, e.AccountId });
@@ -75,6 +79,7 @@ namespace TechWebsite.Models
                 .HasConstraintName("FK_RoleAccount_Role");
             });
 
+            //category
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.Property(e => e.Name)
@@ -85,6 +90,15 @@ namespace TechWebsite.Models
                 .WithMany(p => p.InverseParents)
                 .HasForeignKey(d => d.ParentId)
                 .HasConstraintName("FK_Category_Category");
+            });
+
+            //slideshow
+            modelBuilder.Entity<SlideShow>(entity =>
+            {
+                entity.Property(e => e.Name)
+                .HasMaxLength(250)
+                .IsUnicode(false);
+
             });
         }
     }

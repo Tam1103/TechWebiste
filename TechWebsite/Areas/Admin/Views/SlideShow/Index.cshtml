@@ -1,0 +1,147 @@
+﻿@model List<TechWebsite.Models.SlideShow>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    a:hover {
+        color: #ff0000;
+    }
+
+    a.add {
+        color: #ffffff;
+        padding: 10px;
+        background: #0094ff;
+    }
+
+        a.add:hover {
+            opacity: 0.7;
+        }
+</style>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>SlideShow List</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">SlideShow</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="add" asp-area="admin" asp-controller="slideshow" asp-action="add">Add New</a>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var slideshow in Model)
+                                    {
+                                        <tr>
+                                            <td>@slideshow.Id</td>
+                                            <td style="font-weight:bold;"><img src="~/slideshows/@slideshow.Name" width="120" /></td>
+                                            <td>@(slideshow.Status ? "show" : "hide") </td>
+                                            <td>
+                                                <a asp-area="admin" asp-controller="slideshow" asp-action="edit" asp-route-id="@slideshow.Id">
+                                                    Edit
+                                                </a><span> | </span>
+                                               
+                                                <a asp-area="admin" asp-controller="slideshow" asp-action="delete" asp-route-id="@slideshow.Id"
+                                                   onclick="return confirm('Are you sure?')">Delete</a><span> | </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr></tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+                </div><div class="col-sm-12 col-md-7">
+                    <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                        <ul class="pagination">
+                            <li class="paginate_button page-item previous disabled" id="example2_previous"><a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                            <li class="paginate_button page-item active">
+                                <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                            </li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                            <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                            <li class="paginate_button page-item next" id="example2_next">
+                                <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="~/Admin/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="~/Admin/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/Admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="~/Admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/Admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="~/Admin/plugins/jszip/jszip.min.js"></script>
+<script src="~/Admin/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="~/Admin/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="~/Admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="~/Admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="~/Admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/Admin/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/Admin/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });</script>
