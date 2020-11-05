@@ -69,5 +69,31 @@ namespace TechWebsite.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("index", "product", new { area = "admin" });
         }
+
+        [HttpGet]
+        [Route("edit/{id}")]
+        public IActionResult Edit(int id)
+        {
+            var product = db.Products.Find(id);
+            return View("Edit",product);
+        }
+
+        [HttpPut]
+        [Route("edit")]
+        public IActionResult Edit(ProductViewModel productViewModel)
+        {
+            return RedirectToAction("index", "product", new { area = "admin" });
+        }
+
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public IActionResult Delete(int id)
+        {
+            var product = db.Products.Find(id);
+            db.Products.Remove(product);
+            db.SaveChanges();
+            return RedirectToAction("index", "product", new { area = "admin" });
+        }
+
     }
 }
