@@ -212,16 +212,18 @@
                             <a class="nav-link" href="@Url.Action("calendar", "dashboard")">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
-                                    Calendar
+
+                                    <span class="brand-text font-weight-light">Calendar</span>
                                     <span class="badge badge-info right">2</span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
+                                <i class="fab fa-cuttlefish"></i>&nbsp;&nbsp;&nbsp;
                                 <p>
-                                    Categories
+
+                                    <span class="brand-text font-weight-light">Categories</span>
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -229,19 +231,19 @@
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="category" asp-action="add" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>Add Categories</p>
+                                        <span class="brand-text font-weight-light">Add Categories</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="category" asp-action="add" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>Add Subcategory</p>
+                                        <span class="brand-text font-weight-light">Add Sub Categories</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="category" asp-action="index" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>List</p>
+                                        <span class="brand-text font-weight-light">List</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -263,9 +265,9 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
+                                <i class="fab fa-stripe-s"></i>&nbsp;&nbsp;&nbsp;
                                 <p>
-                                    SlideShow
+                                   <span class="brand-text font-weight-light">SlideShow</span>
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -273,13 +275,13 @@
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="slideshow" asp-action="add" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>Add SlideShow</p>
+                                        <span class="brand-text font-weight-light">Add SlideShow</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="slideshow" asp-action="index" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>List</p>
+                                        <span class="brand-text font-weight-light">List</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -294,9 +296,9 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
+                                <i class="fab fa-product-hunt"></i>&nbsp;&nbsp;&nbsp;
                                 <p>
-                                    Product
+                                    <span class="brand-text font-weight-light">Product</span>
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -304,13 +306,14 @@
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="product" asp-action="add" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>Add product</p>
+                                        <span class="brand-text font-weight-light">Add Product</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="product" asp-action="index" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>List</p>
+
+                                        <span class="brand-text font-weight-light">List</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -335,10 +338,10 @@
         @*</div>*@
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2020 <a href="https://adminlte.io">DoMinhTam.io</a>.</strong>
+            <strong>Copyright &copy; 2020 <a asp-area="admin" asp-controller="dashboard" asp-action="index">TechWebsite.io</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.1.0-pre
+                <b>Version</b> 2.2.0
             </div>
         </footer>
 
