@@ -16,9 +16,6 @@ namespace TechWebsite.Areas.Admin.Controllers
     {
 
         private readonly DatabaseContext db;
-        public ProductController()
-        {
-        }
         public ProductController(DatabaseContext _db)
         {
             db = _db;
@@ -28,7 +25,8 @@ namespace TechWebsite.Areas.Admin.Controllers
         [Route("index")]
         public IActionResult Index()
         {
-            return View();
+            var product = db.Products.ToList();
+            return View("index",product);
         }
     }
 }
