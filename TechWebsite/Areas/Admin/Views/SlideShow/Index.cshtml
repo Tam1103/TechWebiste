@@ -52,6 +52,9 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Name</th>
+                                        <th>Title</th>
+                                        <th>UptoSale</th>
+                                        <th>Description</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -59,19 +62,22 @@
                                 <tbody>
                                     @foreach (var slideshow in Model)
                                     {
-                                        <tr>
-                                            <td>@slideshow.Id</td>
-                                            <td style="font-weight:bold;"><img src="~/slideshows/@slideshow.Name" width="120" /></td>
-                                            <td>@(slideshow.Status ? "show" : "hide") </td>
-                                            <td>
-                                                <a asp-area="admin" asp-controller="slideshow" asp-action="edit" asp-route-id="@slideshow.Id">
-                                                    Edit
-                                                </a><span> | </span>
-                                               
-                                                <a asp-area="admin" asp-controller="slideshow" asp-action="delete" asp-route-id="@slideshow.Id"
-                                                   onclick="return confirm('Are you sure?')">Delete</a><span> | </span>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td>@slideshow.Id</td>
+                                        <td style="font-weight:bold;"><img src="~/slideshows/@slideshow.Name" width="120" /></td>
+                                        <td>@slideshow.Title</td>
+                                        <td>@slideshow.UptoSale</td>
+                                        <td>@slideshow.Description</td>
+                                        <td>@(slideshow.Status ? "show" : "hide") </td>
+                                        <td>
+                                            <a asp-area="admin" asp-controller="slideshow" asp-action="edit" asp-route-id="@slideshow.Id">
+                                                Edit
+                                            </a><span> | </span>
+
+                                            <a asp-area="admin" asp-controller="slideshow" asp-action="delete" asp-route-id="@slideshow.Id"
+                                               onclick="return confirm('Are you sure?')">Delete</a><span> | </span>
+                                        </td>
+                                    </tr>
                                     }
                                 </tbody>
                                 <tfoot>

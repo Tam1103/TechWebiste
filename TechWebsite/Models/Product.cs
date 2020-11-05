@@ -7,15 +7,22 @@ using System.Threading.Tasks;
 
 namespace TechWebsite.Models
 {
-    [Table("SlideShow")]
-    public class SlideShow
+    [Table("Product")]
+    public class Product
     {
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Title { get; set; }
-        public string UptoSale { get; set; }
         public string Description { get; set; }
+        public string Details { get; set; }
         public bool Status { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+        public int CategoryId { get; set; }
+
+        public virtual Category Category { get; set; }
+
+        public virtual IEnumerable<Photo> Photos { get; set; }
+
     }
 }

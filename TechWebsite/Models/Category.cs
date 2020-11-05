@@ -22,5 +22,8 @@ namespace TechWebsite.Models
         public virtual Category Parent { get; set; }
 
         public virtual IEnumerable<Category> InverseParents { get; set; }
+
+        public virtual IEnumerable<Product> Products { get; set; }
+        
     }
 }

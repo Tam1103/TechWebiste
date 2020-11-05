@@ -27,6 +27,10 @@ namespace TechWebsite.Models
 
         public virtual DbSet<SlideShow> SlideShows { get; set; }
 
+        public virtual DbSet<Product> Products  { get; set; }
+
+        public virtual DbSet<Photo> Photos  { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
@@ -99,6 +103,26 @@ namespace TechWebsite.Models
                 .HasMaxLength(250)
                 .IsUnicode(false);
 
+            });
+
+            //product
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.HasOne(d => d.Category)
+                .WithMany(p => p.Products)
+                .HasForeignKey(d => d.CategoryId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Product_Category");
+            });
+
+            //photo
+            modelBuilder.Entity<Photo>(entity =>
+            {
+                entity.HasOne(d => d.Product)
+                .WithMany(p => p.Photos)
+                .HasForeignKey(d => d.ProductId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Photo_Product");
             });
         }
     }

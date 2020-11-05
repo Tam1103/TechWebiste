@@ -87,6 +87,9 @@ namespace TechWebsite.Areas.Admin.Controllers
                 photo.CopyToAsync(stream);
                 currentSlideShow.Name = fileName;
             }
+            currentSlideShow.Title = slideshow.Title;
+            currentSlideShow.UptoSale = slideshow.UptoSale;
+            currentSlideShow.Description = slideshow.Description;
             currentSlideShow.Status =  slideshow.Status;
             db.SaveChanges();
             return RedirectToAction("index", "slideshow", new { area = "admin" });
