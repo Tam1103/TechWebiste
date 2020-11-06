@@ -115,6 +115,8 @@ namespace TechWebsite.Areas.Admin.Controllers
         {
             var product = db.Products.Find(id);
             db.Products.Remove(product);
+            var photolist = db.Photos.Where(p => p.ProductId == id).ToList();
+            db.Photos.RemoveRange(photolist);
             db.SaveChanges();
             return RedirectToAction("index", "product", new { area = "admin" });
         }
