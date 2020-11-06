@@ -49,7 +49,10 @@ namespace TechWebsite
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            else
+            {
+                app.UseStatusCodePagesWithRedirects("/Oops");
+            }
             app.UseSession();
 
             app.UseStaticFiles();
@@ -58,19 +61,17 @@ namespace TechWebsite
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                   name: "MyArea",
-                   template: "{area:exists}/{controller=DashBoard}/{action=Index}/{id?}");
+                routes.MapRoute("areaRoute", "{area:exists}/{controller=dashboard}/{action=index}/{id?}");
 
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("NotFound 404");
-            });
+            //app.Run(async context =>
+            //{
+            //    await context.Response.WriteAsync("Not Found 4 0 4");
+            //});
         }
     }
 }

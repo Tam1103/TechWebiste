@@ -3,6 +3,7 @@
     ViewData["Title"] = "Profile";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -38,19 +39,21 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input type="text" class="form-control" id="username" required="required" asp-for="Username">
+                                    <input type="text" class="form-control" id="username" asp-for="Username">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" required="required" asp-for="Password">
+                                    <label>Password</label>
+                                    <input type="password" id="password" name="password" asp-for="Password" class="form-control">
+                                    <input type="checkbox" onclick="myFunction()">&nbsp;Show Password
                                 </div>
+
                                 <div class="form-group">
                                     <label for="fullname">Full Name</label>
-                                    <input type="text" class="form-control" id="fullname" required="required" asp-for="FullName">
+                                    <input type="text" class="form-control" id="fullname" asp-for="FullName">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" required="required" asp-for="Email">
+                                    <input type="email" class="form-control" id="email" asp-for="Email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">File input</label>
@@ -82,3 +85,14 @@
         </div>
     </section>
 </div>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>

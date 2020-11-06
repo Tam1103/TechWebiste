@@ -19,7 +19,10 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
+<<<<<<< HEAD
     <Folder Include="Areas\Admin\Models\" />
+=======
+>>>>>>> product_management_in_admin
     <Folder Include="wwwroot\products\" />
     <Folder Include="wwwroot\slideshows\" />
   </ItemGroup>

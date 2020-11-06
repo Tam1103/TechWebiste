@@ -8,7 +8,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin | Dashboard</title>
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -36,8 +35,7 @@
     <link rel="stylesheet" href="~/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="~/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="~/Admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="~/Admin/dist/css/adminlte.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -170,16 +168,16 @@
 
                 <li class="nav-item">
                     <a class="nav-link" asp-area="admin" asp-controller="login" asp-action="signout">
-                       Sign out
+                        Sign out
                     </a>
                 </li>
 
 
                 @*<li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                <i class="fas fa-th-large"></i>
-            </a>
-        </li>*@
+                        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                            <i class="fas fa-th-large"></i>
+                        </a>
+                    </li>*@
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -204,28 +202,28 @@
                 </div>
 
                 <!-- SidebarSearch Form -->
-     
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-         with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <li class="nav-header">Dashboard</li>
                         <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("calendar", "dashboard")">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
-                                    Calendar
+
+                                    <span class="brand-text font-weight-light">Calendar</span>
                                     <span class="badge badge-info right">2</span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
+                                <i class="fab fa-cuttlefish"></i>&nbsp;&nbsp;&nbsp;
                                 <p>
-                                    Categories
+
+                                    <span class="brand-text font-weight-light">Categories</span>
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -233,19 +231,19 @@
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="category" asp-action="add" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>Add Categories</p>
+                                        <span class="brand-text font-weight-light">Add Categories</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="category" asp-action="add" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>Add Subcategory</p>
+                                        <span class="brand-text font-weight-light">Add Sub Categories</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="category" asp-action="index" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>List</p>
+                                        <span class="brand-text font-weight-light">List</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -255,7 +253,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="~/Admin/pages/examples/faq.html" class="nav-link active">
+                                    <a href="#" class="nav-link active">
                                         @*<i class="far fa-circle nav-icon"></i>*@
                                         <i class="fas fa-angle-right"></i>
                                         <p>All Manager</p>
@@ -267,9 +265,9 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
+                                <i class="fab fa-stripe-s"></i>&nbsp;&nbsp;&nbsp;
                                 <p>
-                                    SlideShow
+                                    <span class="brand-text font-weight-light">SlideShow</span>
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -277,17 +275,17 @@
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="slideshow" asp-action="add" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>Add SlideShow</p>
+                                        <span class="brand-text font-weight-light">Add SlideShow</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a asp-area="admin" asp-controller="slideshow" asp-action="index" class="nav-link">
                                         <i class="fas fa-angle-right"></i>
-                                        <p>List</p>
+                                        <span class="brand-text font-weight-light">List</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="~/Admin/pages/examples/faq.html" class="nav-link active">
+                                    <a href="#" class="nav-link active">
                                         @*<i class="far fa-circle nav-icon"></i>*@
                                         <i class="fas fa-angle-right"></i>
                                         <p>All Manager</p>
@@ -296,7 +294,37 @@
                             </ul>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fab fa-product-hunt"></i>&nbsp;&nbsp;&nbsp;
+                                <p>
+                                    <span class="brand-text font-weight-light">Product</span>
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-area="admin" asp-controller="product" asp-action="add" class="nav-link">
+                                        <i class="fas fa-angle-right"></i>
+                                        <span class="brand-text font-weight-light">Add Product</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-area="admin" asp-controller="product" asp-action="index" class="nav-link">
+                                        <i class="fas fa-angle-right"></i>
 
+                                        <span class="brand-text font-weight-light">List</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link active">
+                                        @*<i class="far fa-circle nav-icon"></i>*@
+                                        <i class="fas fa-angle-right"></i>
+                                        <p>All Manager</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -306,14 +334,14 @@
 
         <!-- Content Wrapper. Contains page content -->
         @*<div class="content-wrapper">*@
-            @RenderBody()
+        @RenderBody()
         @*</div>*@
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2020 <a href="https://adminlte.io">DoMinhTam.io</a>.</strong>
+            <strong>Copyright &copy; 2020 <a asp-area="admin" asp-controller="dashboard" asp-action="index">TechWebsite.io</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.1.0-pre
+                <b>Version</b> 2.2.0
             </div>
         </footer>
 
@@ -358,5 +386,37 @@
     <script src="~/Admin/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/Admin/dist/js/pages/dashboard.js"></script>
+
+    <!-- DataTables  & Plugins -->
+    <script src="~/Admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/Admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/Admin/plugins/jszip/jszip.min.js"></script>
+    <script src="~/Admin/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/Admin/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/Admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });</script>
+
 </body>
 </html>
