@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TechWebsite.Controllers
 {
-    [Route("Oops")]
+    [Route("oops")]
     public class OopsController : Controller
     {
         [Route("")]

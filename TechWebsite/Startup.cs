@@ -65,13 +65,13 @@ namespace TechWebsite
 
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=home}/{action=index}/{id?}");
             });
 
-            //app.Run(async context =>
-            //{
-            //    await context.Response.WriteAsync("Not Found 4 0 4");
-            //});
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync("not found 4 0 4");
+            });
         }
     }
 }
