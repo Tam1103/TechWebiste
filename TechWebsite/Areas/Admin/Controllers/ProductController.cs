@@ -74,18 +74,42 @@ namespace TechWebsite.Areas.Admin.Controllers
         [Route("edit/{id}")]
         public IActionResult Edit(int id)
         {
-            var product = db.Products.Find(id);
-            return View("Edit",product);
+            var productViewModel = new ProductViewModel();
+            productViewModel.Product = db.Products.Find(id);
+            productViewModel.Categories = new List<SelectListItem>();
+
+            var categories = db.Categories.ToList();
+            foreach (var category in categories)
+            {
+                var group = new SelectListGroup { Name = category.Name };
+                if (category.InverseParents != null && category.InverseParents.Count() != 0)
+                {
+                    foreach (var subCategory in category.InverseParents)
+                    {
+                        var selectListItem = new SelectListItem
+                        {
+                            Text = subCategory.Name,
+                            Value = subCategory.Id.ToString(),
+                            Group = group
+                        };
+
+                        productViewModel.Categories.Add(selectListItem);
+                    }
+                }
+            }
+            return View("Edit", productViewModel);
         }
 
-        [HttpPut]
-        [Route("edit")]
+        [HttpPost]
+        [Route("edit/{id}")]
         public IActionResult Edit(ProductViewModel productViewModel)
         {
+            db.Entry(productViewModel.Product).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
             return RedirectToAction("index", "product", new { area = "admin" });
         }
 
-        [HttpDelete]
+        [HttpGet]
         [Route("delete/{id}")]
         public IActionResult Delete(int id)
         {
