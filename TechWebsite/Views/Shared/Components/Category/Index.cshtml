@@ -38,7 +38,7 @@
                             @if (subCagegory.Status)
                             {
                                 <ul>
-                                    <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @subCagegory.Name</a></li>
+                                    <li><a asp-controller="product" asp-action="productdisplay" asp-route-id="@subCagegory.Id">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @subCagegory.Name</a></li>
                                 </ul>
                             }
                         }

@@ -21,8 +21,9 @@ namespace TechWebsite.Controllers
         [Route("~/")]
         public IActionResult Index()
         {
-            var product = db.Products.OrderByDescending(p => p.Id).Where(p => p.Status).ToList();
+            var product = db.Products.OrderByDescending(p => p.Id).Where(p => p.Status).Take(4).ToList();
             return View("Index",product);
         }
+        
     }
 }
