@@ -48,9 +48,13 @@ namespace TechWebsite.Areas.Admin.Controllers
             var account = db.Accounts.SingleOrDefault(a => a.Username.Equals(username) && a.Status == true);
             if (account != null)
             {
-                if (BCrypt.Net.BCrypt.Verify(password, account.Password))
+                var accounts = db.RoleAccounts.FirstOrDefault(r => r.AccountId == account.Id);
+                if(accounts != null)
                 {
-                    return account;
+                    if (BCrypt.Net.BCrypt.Verify(password, account.Password) && accounts.RoleId == 1)
+                    {
+                        return account;
+                    }
                 }
             }
             return null;

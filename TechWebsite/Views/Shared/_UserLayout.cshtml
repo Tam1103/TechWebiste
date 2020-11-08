@@ -1,4 +1,9 @@
-﻿<!DOCTYPE HTML>
+﻿@using System.Security.Claims
+@{
+    var user = User.FindFirst(ClaimTypes.Name);
+}
+
+<!DOCTYPE HTML>
 <head>
     <title>[Mới 100% Full Box] DoMinhTam Website</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,11 +25,17 @@
                 </div>
                 <div class="account_desc">
                     <ul>
-                        <li><a href="#">Register</a></li>
-                        <li><a href="#">Login</a></li>
+                        <li><a asp-controller="customer" asp-action="register">Register</a></li>
+                        <li><a asp-controller="customer" asp-action="login">Login</a></li>
                         <li><a href="#">Delivery</a></li>
                         <li><a href="#">Checkout</a></li>
-                        <li><a href="#">My Account</a></li>
+                        @if (user != null){
+                            <li><a asp-controller="customer" asp-action="profile">@user.Value</a></li>
+                            <li><a asp-controller="customer" asp-action="signout">Logout</a></li>
+                        }
+                else{
+                              <li><a href="#">My Account</a></li>
+                        }
                     </ul>
                 </div>
                 <div class="clear"></div>
