@@ -20,16 +20,16 @@
             <div class="grid_1_of_4 images_1_of_4">
                 @if (photo != null)
                 {
-                    <a asp-controller="product" asp-action="details" asp-route-id="product.Id"><img src="~/products/@photo.Name" alt="" /></a>
+                    <a asp-controller="product" asp-action="details" asp-route-id="@product.Id"><img src="~/products/@photo.Name" alt="" /></a>
                 }
                 else
                 {
-                    <a asp-controller="product" asp-action="details" asp-route-id="product.Id"><img src="~/products/default.png" alt="featured_image_none" /></a>
+                    <a asp-controller="product" asp-action="details" asp-route-id="@product.Id"><img src="~/products/default.png" alt="featured_image_none" /></a>
                 }
                 <h2>@product.Name</h2>
                 <div class="price-details">
                     <div class="price-number">
-                        <p><span class="rupees">@String.Format("{0:C}", product.Price)</span></p>
+                        <p><span class="rupees">@String.Format("{0:#,###}", product.Price)<span class="input-group-addon">$</span></span></p>
                     </div>
                     <div class="add-cart">
                         <h4><a href="preview.html">Add to Cart</a></h4>
@@ -97,16 +97,16 @@
                 <div class="grid_1_of_4 images_1_of_4">
                     @if (photo != null)
                     {
-                        <a asp-controller="product" asp-action="details" asp-route-id="product.Id"><img src="~/products/@photo.Name" alt="@product.Name" /></a>
+                        <a asp-controller="product" asp-action="details" asp-route-id="@product.Id"><img src="~/products/@photo.Name" alt="@product.Name" /></a>
                     }
                     else
                     {
-                        <a asp-controller="product" asp-action="details" asp-route-id="product.Id"><img src="~/products/default.png" alt="featured_image_none" /></a>
+                        <a asp-controller="product" asp-action="details" asp-route-id="@product.Id"><img src="~/products/default.png" alt="featured_image_none" /></a>
                     }
                     <h2>@product.Name</h2>
                     <div class="price-details">
                         <div class="price-number">
-                            <p><span class="rupees">@String.Format("{0:C}", product.Price)</span></p>
+                            <p><span class="rupees">@String.Format("{0:#,###}", product.Price)<span class="input-group-addon">$</span></span></p>
                         </div>
                         <div class="add-cart">
                             <h4><a href="preview.html">Add to Cart</a></h4>

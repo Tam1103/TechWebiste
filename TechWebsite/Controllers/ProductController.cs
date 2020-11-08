@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TechWebsite.Models;
+using X.PagedList;
 
 namespace TechWebsite.Controllers
 {
@@ -24,16 +25,18 @@ namespace TechWebsite.Controllers
 
         [HttpGet]
         [Route("productdisplay/{id}")]
-        public IActionResult ProductDisplay(int id)
+        public IActionResult ProductDisplay(int id, int? page)
         {
+            var pageNumber = page ?? 1;
             var category = db.Categories.Find(id);
+            ViewBag.category = category;
             ViewBag.nameCategory = category.Name;
-            var product = category.Products.Where(s => s.Status).ToList();
+            var product = category.Products.Where(s => s.Status).ToList().ToPagedList(pageNumber, 1);
             if (!product.Any())
             {
                 ViewBag.notification = "Sorry we are updating, Thanks";
             }
-            return View("ProductDisplay", product);
+            return View("ProductDisplay",product);
         }
         
         [HttpGet]
@@ -41,6 +44,12 @@ namespace TechWebsite.Controllers
         public IActionResult Details(int id)
         {
             var product = db.Products.Find(id);
+            ViewBag.featuredPhoto = product.Photos.Where(p => p.Status && p.Featured).ToList();
+            var category = db.Categories.Find(product.CategoryId);
+            ViewBag.nameCategory = category.Name;
+
+            ViewBag.releatedProducts = db.Products.Where(p => p.CategoryId == product.CategoryId && p.Id != product.Id && p.Status).ToList();
+           
             return View("Details", product);
         }
     }

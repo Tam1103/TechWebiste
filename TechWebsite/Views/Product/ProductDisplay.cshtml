@@ -1,9 +1,35 @@
 ﻿
-@model List<TechWebsite.Models.Product>
+@model IPagedList<TechWebsite.Models.Product>
+
 @{
     ViewData["Title"] = "ProductDisplay";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+
+
+<style>
+    .pagination {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+        .pagination li {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 0px 10px;
+        }    
+        .pagination a{
+        color: #808080;
+    }
+    .PagedList-skipToNext a, .PagedList-skipToPrevious a{
+        font-size: 30px;
+        color: darkred;
+    }
+</style>
 
 <div class="content">
     <div class="content_top">
@@ -22,7 +48,7 @@
             <div class="grid_1_of_4 images_1_of_4">
                 @if (photo != null)
                 {
-                    <a asp-area="admin" asp-controller="product" asp-action="details"><img src="~/products/@photo.Name" alt="" /></a>
+                    <a asp-controller="product" asp-action="details" asp-route-id="@product.Id"><img src="~/products/@photo.Name" alt="" /></a>
                 }
                 else
                 {
@@ -31,7 +57,7 @@
                 <h2>@product.Description</h2>
                 <div class="price-details">
                     <div class="price-number">
-                        <p><span class="rupees">@String.Format("{0:C}", product.Price)</span></p>
+                        <p><span class="rupees">@String.Format("{0:#,###}", product.Price)<span class="input-group-addon">$</span></span></p>
                     </div>
                     <div class="add-cart">
                         <h4><a href="preview.html">Add to Cart</a></h4>
@@ -40,5 +66,9 @@
                 </div>
             </div>
         }
+    </div>
+    <div class="pagination">
+        @Html.PagedListPager((IPagedList)Model,page => Url.Action("productdisplay", "product", new
+   { page = page, id = ViewBag.category.Id}))
     </div>
 </div>

@@ -4,7 +4,6 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
 <style>
     a:hover {
         color: #ff0000;
@@ -55,7 +54,6 @@
                                         <th>Name</th>
                                         <th>Photo</th>
                                         <th>Price</th>
-
                                         <th>Description</th>
                                         <th>Category</th>
                                         <th>Status</th>
@@ -78,7 +76,7 @@
                                             {
                                                 <td></td>
                                             }
-                                            <td>@String.Format("{0:C}", product.Price)</td>
+                                                <td>@String.Format("{0:#,###}", product.Price)<span class="input-group-addon">$</span></td>
                                             <td width="120">@product.Description</td>
                                             <td>@product.Category.Name</td>
                                             <td>@(product.Status ? "show" : "hide") </td>
