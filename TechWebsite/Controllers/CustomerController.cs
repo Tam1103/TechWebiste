@@ -53,7 +53,8 @@ namespace TechWebsite.Controllers
             var account = db.Accounts.Where(a => a.Username.Equals(username) && a.Status == true);
             foreach (var acc in account)
             {
-                if (acc != null)
+                var accounts = acc.RoleAccounts.FirstOrDefault(s => s.AccountId == acc.Id);
+                if (acc != null && accounts.RoleId != 1)
                 {
                     if (BCrypt.Net.BCrypt.Verify(password, acc.Password))
                     {

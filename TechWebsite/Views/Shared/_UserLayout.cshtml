@@ -30,7 +30,7 @@
                         <li><a href="#">Delivery</a></li>
                         <li><a href="#">Checkout</a></li>
                         @if (user != null){
-                            <li><a asp-controller="customer" asp-action="profile">@user.Value</a></li>
+                            <li><a asp-controller="customer" asp-action="profile">Hi @user.Value</a></li>
                             <li><a asp-controller="customer" asp-action="signout">Logout</a></li>
                         }
                 else{
